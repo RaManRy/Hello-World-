@@ -1,0 +1,14 @@
+import requests
+import json
+
+base_key = "USD"
+sym_key = "RUB"
+amount = 100
+
+r = requests.get(f"http://api.exchangeratesapi.io/v1/latest?access_key=5fbeaedec4469ea558984342fc1d2bef&format=1")
+
+resp = json.loads(r.content)
+
+new_price = resp["rates"][sym_key] * amount
+
+print(new_price)
